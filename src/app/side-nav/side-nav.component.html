@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<aside class="column is-12 is-narrow-mobile is-fullheight section is-hidden-mobile">
+
+  <ul class="menu-list">
+    <li>
+      <a routerLink="/" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="is-active">
+        <span class="icon"><i class="fa fa-home"></i></span> Početna
+      </a>
+    </li>
+    <li>
+      <a routerLink="/subject" routerLinkActive="is-active">
+        <span class="icon"><i class="fa fa-folder"></i></span> Predmeti
+      </a>
+
+      <ul>
+        <li *ngIf="korisnik">
+          <div *ngIf="korisnik.id==1">
+            <a routerLink="/subjectAE/new" routerLinkActive="is-active">
+              <span class="icon is-small"><i class="fa fa-plus"></i></span> Dodaj predmet
+            </a>
+          </div>
+        </li>
+      </ul>
+      <a routerLink="/angazovanje" routerLinkActive="is-active">
+        <span class="icon"><i class="fa fa-folder"></i></span> Angazovanja
+      </a>
+
+      <ul>
+        <li *ngIf="korisnik">
+          <div *ngIf="korisnik.id==1">
+            <a routerLink="/angazovanjeAE/new" routerLinkActive="is-active">
+              <span class="icon is-small"><i class="fa fa-plus"></i></span> Dodaj angazovanje
+            </a>
+          </div>
+        </li>
+      </ul>
+    </li>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+
+    <li>
+      <button class="button is-block is-link" type="button" (click)="odjava()">Odjava</button>
+    </li>
+  </ul>
+</aside>

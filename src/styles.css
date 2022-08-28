@@ -1,0 +1,26 @@
+body {
+  background-color: whitesmoke !important;
+}
+
+.box {
+  background-color: whitesmoke !important;
+}
+
+.input, .textarea, .select select, .table {
+  background-color: whitesmoke !important;
+}
+
+.button {
+  background-color: #485fc7
+}
+
+table {
+  background-color: whitesmoke !important;
+}
+
+footer {
+  background-color: whitesmoke !important;
+}
+html {
+  background-color: whitesmoke !important;
+}

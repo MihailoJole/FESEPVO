@@ -1,0 +1,23 @@
+<app-header></app-header>
+<!--<app-subject></app-subject> -->
+<section class="main-content columns is-fullheight">
+  <div *ngIf="getKorisnik()!=null">
+    <app-side-nav></app-side-nav>
+  </div>
+  <div class="container column is-10">
+    <div class="section">
+      <app-login *ngIf="getKorisnik()==null;else ulogovan"></app-login>
+      <ng-template #ulogovan>
+        <router-outlet></router-outlet>
+      </ng-template>
+
+    </div>
+  </div>
+</section>
+<footer style="margin-top: 13%; ">
+  <div class="content has-text-centered">
+    <p>
+      <strong>SEPVO</strong> by <a href="https://github.com/mihailoJole">Ilija i Mihailo</a>.
+    </p>
+  </div>
+</footer>

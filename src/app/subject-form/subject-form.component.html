@@ -1,0 +1,52 @@
+<div class="columns is-centered">
+  <div class="column">
+    <div class="box" style="margin-top: 25px">
+      <p class="title" >{{getTitle()}}</p>
+
+      <form [formGroup]="subjectForm" (ngSubmit)="go()">
+        <div class="field">
+          <label class="label">Naziv</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Programiranje 1..." autofocus="" formControlName="naziv">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Opis</label>
+          <div class="control">
+            <textarea class="textarea" type="text"
+              placeholder="Nakon slusanja ovog predmeta student ce biti u mogucnosti da..."
+              formControlName="opis"></textarea>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Broj ESPB</label>
+          <div class="control">
+            <input class="input" type="number" placeholder="6" min="2" max="27" autofocus="" formControlName="espb">
+          </div>
+        </div>
+
+        <div class="box" style="margin-top: 25px">
+          <div class="field">
+            <label class="label">Oblik nastave</label>
+            <div class="control">
+
+              <div *ngFor="let oblik of obliciNastave">
+                <label class="checkbox">
+                  <input [checked]="setChecked(oblik.id)" id="{{oblik.id}}" #c type="checkbox" [value]="oblik.id" (change)="onCheckChange($event)">
+                  {{oblik.naziv}} &nbsp;
+                </label> &nbsp;
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <button type="submit" class="button is-block is-large" style="color: white;">Snimi <i class="fa fa-save"
+            aria-hidden="true"></i></button>
+      </form>
+    </div>
+  </div>
+</div>

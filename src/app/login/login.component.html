@@ -1,0 +1,33 @@
+<section class="hero is-fullwidth " >
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <div class="column is-4 is-offset-4">
+        <h3 class="title has-text-black">Prijava</h3>
+        <hr class="login-hr">
+        <p class="subtitle has-text-black">Prijavite se kako biste nastavili dalje.</p>
+        <div class="box">
+          <figure class="avatar">
+          </figure>
+          <form [formGroup]="loginForm" (ngSubmit)="go()">
+            <div class="field">
+              <div class="control">
+                <input id="user" class="input is-large" type="text" placeholder="Korisnicko ime" autofocus="" formControlName="username" >
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="control">
+                <input id="pass" class="input is-large" type="password" placeholder="Lozinka" formControlName="password" >
+              </div>
+            </div>
+            <button type="submit" class="button is-block is-large is-fullwidth">Prijava <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    var inputF = document.getElementById("user"); inputF.value = "admin";
+    var inputD = document.getElementById("pass"); inputD.value = "admin";
+  </script>
+</section>

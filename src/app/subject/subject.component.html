@@ -1,0 +1,35 @@
+<div class="content has-text-centered">
+  <p class="title">
+    <strong>SPISAK PREDMETA</strong>
+  </p>
+  <table class="table is-bordered">
+    <thead style="background-color: darkgray">
+    <tr>
+      <th>ID</th>
+      <th>Naziv predmeta</th>
+      <th>Opis</th>
+      <th>Broj ESPB</th>
+      <th>Oblik nastave</th>
+      <th *ngIf="korisnik && korisnik.rola.id==1"></th>
+      <th *ngIf="korisnik && korisnik.rola.id==1"></th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let predmet of predmeti">
+    <tr *ngIf="predmet.aktivan">
+    
+      <td>{{predmet.id}}</td>
+      <td> {{predmet.naziv}}</td>
+      <td>{{predmet.opis}}</td>
+      <td>{{predmet.espb}}</td>
+      <td>
+        <ul>
+        <li *ngFor="let oblik of predmet.obliciNastave">{{oblik.naziv}}</li>
+      </ul>
+    </td>
+      <!--      Treba da se prosledi argument metodi.-->
+      <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Izmeni" (click)="editSubject(predmet)"/></td>
+      <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Obrisi" (click)="deleteSubject(predmet.id)"/></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

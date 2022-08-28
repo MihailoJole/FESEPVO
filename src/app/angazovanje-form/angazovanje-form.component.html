@@ -1,0 +1,55 @@
+<div class="columns is-centered">
+  <div class="column">
+    <div class="box" style="margin-top: 25px">
+      <p class="title">{{getTitle()}}</p>
+
+      <form [formGroup]="angazovanjeForm" (ngSubmit)="go()">
+        <div>
+          <div class="field">
+            <div class="control">
+              <div class="columns">
+                <div class="column">
+                  <label class="label">Predmet</label>
+                  <div class="select">
+                    <select (change)="UcitajOblikeNastave(t.value, t.options)" #t formControlName="predmet">
+                      <option *ngFor="let predmet of predmeti" value="{{predmet.id}}">{{predmet.naziv}}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="columns" *ngIf="obliciNastave.length>0">
+            
+            <div class="column">
+              <label class="label">Nastavno osoblje</label>
+              <div class="select" >
+                <!--                  Profesore za ovaj select da puni iz baze-->
+                <select formControlName="nastavnoOsoblje"> 
+                  <option *ngFor="let osoba of nastavnoOsoblje" value="{{osoba.id}}">{{osoba.ime}} {{osoba.prezime}} ({{osoba.zvanje.naziv}})</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="column">
+              <label class="label">Oblik nastave</label>
+              <div class="select">
+                <!--                  Predemete za ovaj select napuniti iz baze-->
+                <select formControlName="oblikNastave" (change)=onChange($event) >
+                  <option *ngFor="let oblik of obliciNastave" value="{{oblik.id}}">{{oblik.naziv}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <button type="submit" class="button is-block is-large" style="color: white;">Snimi <i class="fa fa-save"
+            aria-hidden="true"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
