@@ -24,7 +24,7 @@
         <td> {{angazovanje.osobljeDto.ime}} {{angazovanje.osobljeDto.prezime}} ({{angazovanje.osobljeDto.zvanje.naziv}})</td>
         <td>{{angazovanje.oblikNastave.naziv}}</td>
         <!--      Treba da se prosledi argument metodi.-->
-<!--     comiiiii88889990000 -->
+<!--     comiiiii888899900007777 -->
         <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Izmeni" (click)="editAngazovanje(angazovanje)" /></td>
         <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Obriši"
             (click)="deleteAngazovanje(angazovanje.osobljeDto.id,angazovanje.predmetDto.id)" /></td>
