@@ -1,4 +1,4 @@
-import { StudijskiProgram } from "./studijskiprogram";
+import { StudijskiProgram } from "./studijskiProgram";
 
 
 export interface Fakultet{
@@ -6,5 +6,6 @@ export interface Fakultet{
     naziv: string;
     adresa: string;
     oblast: string;
-    strudijskiProgrami: StudijskiProgram;
+    strudijskiProgrami: StudijskiProgram[];
+
 }
