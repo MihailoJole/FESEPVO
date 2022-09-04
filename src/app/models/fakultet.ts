@@ -6,5 +6,5 @@ export interface Fakultet{
     naziv: string;
     adresa: string;
     oblast: string;
-    strudijskiProgrami: StudijskiProgram;
+    strudijskiProgrami: StudijskiProgram[];
 }

@@ -8,6 +8,7 @@ import { SubjectAEComponent } from './subject-ae/subject-ae.component';
 import { AngazovanjeAEComponent } from './angazovanje-ae/angazovanje-ae.component';
 import { AngazovanjeComponent } from './angazovanje/angazovanje.component';
 import { AngazovanjeFormComponent } from './angazovanje-form/angazovanje-form.component';
+import { PredmetiModulComponent } from './predmeti-modul/predmeti-modul.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   {
     path: 'subject', component: SubjectComponent,
   },
+  { path: 'predmetiModul', component: PredmetiModulComponent},
   {
     path: 'angazovanje', component: AngazovanjeComponent,
   },

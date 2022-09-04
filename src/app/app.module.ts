@@ -17,6 +17,7 @@ import { SubjectAEComponent } from './subject-ae/subject-ae.component';
 import { AngazovanjeComponent } from './angazovanje/angazovanje.component';
 import { AngazovanjeAEComponent } from './angazovanje-ae/angazovanje-ae.component';
 import { AngazovanjeFormComponent } from './angazovanje-form/angazovanje-form.component';
+import { PredmetiModulComponent } from './predmeti-modul/predmeti-modul.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { AngazovanjeFormComponent } from './angazovanje-form/angazovanje-form.co
     AngazovanjeComponent,
     AngazovanjeAEComponent,
     AngazovanjeFormComponent,
+    PredmetiModulComponent,
 
   ],
   imports: [
