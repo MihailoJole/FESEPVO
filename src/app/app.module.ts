@@ -18,6 +18,7 @@ import { AngazovanjeComponent } from './angazovanje/angazovanje.component';
 import { AngazovanjeAEComponent } from './angazovanje-ae/angazovanje-ae.component';
 import { AngazovanjeFormComponent } from './angazovanje-form/angazovanje-form.component';
 import { PredmetiModulComponent } from './predmeti-modul/predmeti-modul.component';
+import { FakultetComponent } from './fakultet/fakultet.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { PredmetiModulComponent } from './predmeti-modul/predmeti-modul.componen
     AngazovanjeAEComponent,
     AngazovanjeFormComponent,
     PredmetiModulComponent,
+    FakultetComponent,
 
   ],
   imports: [
