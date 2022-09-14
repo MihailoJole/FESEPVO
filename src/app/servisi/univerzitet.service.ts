@@ -9,13 +9,13 @@ import { Univerzitet } from '../models/univerzitet';
 @Injectable({
   providedIn: 'root'
 })
-export class FakutletService {
+export class UniverzitetService {
 
   
   constructor(private http: HttpClient) { }
 
-  public getAll(): Observable<Fakultet[]> {
-    return this.http.get<Fakultet[]>('http://localhost:8080/fakultet/',);
+  public getAll(): Observable<Univerzitet[]> {
+    return this.http.get<Univerzitet[]>('http://localhost:8080/univerzitet',);
   }
 
 //   public getAll(): Observable<IPredmet[]> {
