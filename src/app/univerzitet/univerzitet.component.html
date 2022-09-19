@@ -1,0 +1,95 @@
+<div class="columns is-centered">
+    <div class="column">
+      <div class="box" style="margin-top: 25px">
+        <p class="title">{{getTitle()}}</p>
+  
+        <form [formGroup]="univerzitetForm" (ngSubmit)="go()">
+          <div>
+            <div class="field">
+              <div class="control">
+                <div class="columns">
+                  <div class="column">
+                    <label class="label">Univerzitet</label>
+                    <div class="select">
+                      <select (change)="UcitajFakultete(t.value, t.options)" #t formControlName="univerzitet">
+                        <option *ngFor="let univerzitet of univerziteti" value="{{univerzitet.id}}">{{univerzitet.naziv}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="field">
+            <div class="columns" *ngIf="fakulteti.length>0">
+              
+              <div class="column">
+                <label class="label">Fakultet</label>
+                <div class="select" >
+                  <!--                  Profesore za ovaj select da puni iz baze-->
+                  <select (change)="UcitajStudijskePrograme(t.value, t.options)" #t formControlName="fakultet"> 
+                    <option *ngFor="let fakultet of fakulteti" value="{{fakultet.id}}">{{fakultet.naziv}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+              <div class="column" *ngIf="fakulteti.length>0&&studijskiProgrami.length>0">
+                <label class="label">Studijski program</label>
+                <div class="select">
+                  <!--                  Predemete za ovaj select napuniti iz baze-->
+                  <select (change)="UcitajModule(t.value, t.options)" #t formControlName="studijskiProgram">
+                    <option *ngFor="let studijskiProgram of studijskiProgrami" value="{{studijskiProgram.id}}">{{studijskiProgram.naziv}}</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="column" *ngIf="fakulteti.length>0&&studijskiProgrami.length>0&&moduli.length>0">
+                <label class="label">Modul</label>
+                <div class="select">
+                  <!--                  Predemete za ovaj select napuniti iz baze-->
+                  <select (change)="UcitajPredmete(t.value, t.options)" #t formControlName="fakultet" >
+                    <option *ngFor="let modul of moduli" value="{{modul.id}}">{{modul.naziv}}</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="column" *ngIf="fakulteti.length>0&&studijskiProgrami.length>0&&moduli.length>0&&predmetmoduli.length>0" >
+                <label class="label">Predmeti</label>
+                <table class="table is-bordered">
+                  <thead style="background-color: darkgray">                          
+                    <tr>
+                      <th>Naziv predmeta</th>
+                      <th>Semestar</th>
+                      <th>ESPB</th>
+                      <th *ngIf="korisnik && korisnik.rola.id==1"></th>
+                      <th *ngIf="korisnik && korisnik.rola.id==1"></th>
+                    </tr>
+                  </thead>
+                  <tbody *ngFor="let predmetmodul of predmetmoduli">
+                    <tr>
+              
+                      <td>{{predmetmodul.predmetDto.naziv}}</td>
+                      <td> {{predmetmodul.semestar}}</td>
+                      <td>{{predmetmodul.predmetDto.espb}}</td>
+                      <!--      Treba da se prosledi argument metodi.-->
+              <!--     comiiiii89 ilijaaaa 111-->
+                      <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Izmeni"/></td>
+                      <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Obriši"
+                         /></td>
+              
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+  
+          
+  
+          <button type="submit" class="button is-block is-large" style="color: white;">Prikazi <i class="fa fa-save"
+              aria-hidden="true"></i></button>
+        </form>
+      </div>
+    </div>
+</div>

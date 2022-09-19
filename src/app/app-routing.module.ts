@@ -9,12 +9,16 @@ import { AngazovanjeAEComponent } from './angazovanje-ae/angazovanje-ae.componen
 import { AngazovanjeComponent } from './angazovanje/angazovanje.component';
 import { AngazovanjeFormComponent } from './angazovanje-form/angazovanje-form.component';
 import { PredmetiModulComponent } from './predmeti-modul/predmeti-modul.component';
+import { UniverzitetComponent } from './univerzitet/univerzitet.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   {
     path: 'subject', component: SubjectComponent,
+  },
+  {
+    path: 'univerzitet', component: UniverzitetComponent,
   },
   { path: 'predmetiModul', component: PredmetiModulComponent},
   {

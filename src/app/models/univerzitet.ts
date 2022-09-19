@@ -4,5 +4,4 @@ export interface Univerzitet{
     id: number;
     naziv: string;
     fakulteti: Fakultet[];
-
 }

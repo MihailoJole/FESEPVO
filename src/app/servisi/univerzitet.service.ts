@@ -15,26 +15,22 @@ export class UniverzitetService {
   constructor(private http: HttpClient) { }
 
   public getAll(): Observable<Univerzitet[]> {
-    return this.http.get<Univerzitet[]>('http://localhost:8080/univerzitet',);
+    return this.http.get<Univerzitet[]>('http://localhost:8080/univerzitet/all',);
   }
 
-//   public getAll(): Observable<IPredmet[]> {
-//     return this.http.get<IPredmet[]>('http://localhost:8080/predmet');
-//   }
+   public deleteUniverzitet(id:number){
+     return this.http.delete('http://localhost:8080/univerzitet/'+id,{responseType: 'text'});
+   }
 
-//   public deleteSubject(id:number){
-//     return this.http.delete('http://localhost:8080/predmet/'+id,{responseType: 'text'});
-//   }
+   public addUniverzitet(naziv:string, fakulteti:Fakultet[]):Observable<Univerzitet>{
+     return this.http.post<Univerzitet>('http://localhost:8080/univerzitet/add',{naziv,fakulteti});
+   }
 
-//   public addSubject(aktivan:boolean,naziv:string,opis:string,espb:number,obliciNastave:IOblikNastave[]):Observable<IPredmet>{
-//     return this.http.post<IPredmet>('http://localhost:8080/predmet',{naziv,opis,espb,obliciNastave,aktivan});
-//   }
+   public getById(id:number):Observable<Univerzitet>{
+     return this.http.get<Univerzitet>('http://localhost:8080/univerzitet/find/'+id);
+   }
 
-//   public getById(id:number):Observable<IPredmet>{
-//     return this.http.get<IPredmet>('http://localhost:8080/predmet/'+id);
-//   }
-
-//   public update(id:number,aktivan:boolean,naziv:string,opis:string,espb:number,obliciNastave:IOblikNastave[]):Observable<IPredmet>{
-//     return this.http.put<IPredmet>('http://localhost:8080/predmet',{id,naziv,opis,espb,obliciNastave,aktivan});
-//   }
+   public updateUniverzitet(id:number,naziv:string, fakulteti:Fakultet[]):Observable<Univerzitet>{
+     return this.http.put<Univerzitet>('http://localhost:8080/univerzitet/update',{id,naziv,fakulteti});
+   }
 }
