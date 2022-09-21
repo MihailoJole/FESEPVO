@@ -34,6 +34,7 @@ export class UniverzitetComponent implements OnInit {
   naziv: string;
   univerziteti: Univerzitet[] = [];
   univerzitet: Univerzitet;
+  predmetModulSortirano: PredmetModul[] = []
 
   constructor(private router: Router,private predmetmodulService: PredmetModulService,private korisnikServis: KorisnikService, private univerzitetServis: UniverzitetService, private route: ActivatedRoute, private fakultetServis: FakutletService, private studijskiProgramServis: StudijskiProgramServis, private modulervis: ModulServis) {  
     this.subs = univerzitetServis.getAll().subscribe(univerziteti=>{
@@ -203,8 +204,8 @@ export class UniverzitetComponent implements OnInit {
        for (let i = 0; i < this.moduli.length; i++) {
          if (this.moduli[i].id == value) {
            console.log("yy")
-           this.subs = this.predmetmodulService.getAllPredmetModulByModulId(value).subscribe(predmetmoduli=>{
-            this.predmetmoduli = predmetmoduli;
+           this.subs = this.predmetmodulService.getAllByModulIdSortByGodinaSortByPozicija(value).subscribe(predmetModulSortirano=>{
+            this.predmetModulSortirano = predmetModulSortirano;
             
           });
              console.log(this.predmetmoduli)

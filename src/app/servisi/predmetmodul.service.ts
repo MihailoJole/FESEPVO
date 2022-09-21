@@ -30,4 +30,8 @@ export class PredmetModulService {
     return this.http.post<PredmetModul>('http://localhost:8080/predmetmodul/add',{modul_id,predmet_id,semestar});
   }
 
+  public getAllByModulIdSortByGodinaSortByPozicija(id:number): Observable<PredmetModul[]> {
+    return this.http.get<PredmetModul[]>('http://localhost:8080/predmetmodul/allByModulIdSortByGodinaSortByPozicija/'+id,);
+ }
+
 }

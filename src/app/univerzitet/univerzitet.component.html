@@ -49,39 +49,104 @@
                 <label class="label">Modul</label>
                 <div class="select">
                   <!--                  Predemete za ovaj select napuniti iz baze-->
-                  <select (change)="UcitajPredmete(t.value, t.options)" #t formControlName="fakultet" >
+                  <select (click)="UcitajPredmete(t.value, t.options)" #t formControlName="fakultet" >
                     <option *ngFor="let modul of moduli" value="{{modul.id}}">{{modul.naziv}}</option>
                   </select>
                 </div>
               </div>
 
-              <div class="column" *ngIf="fakulteti.length>0&&studijskiProgrami.length>0&&moduli.length>0&&predmetmoduli.length>0" >
+              <div class="column" *ngIf="fakulteti.length>0&&studijskiProgrami.length>0&&moduli.length>0&&predmetModulSortirano.length>0" >
                 <label class="label">Predmeti</label>
+                <label class="label">Prva godina</label>
                 <table class="table is-bordered">
                   <thead style="background-color: darkgray">                          
                     <tr>
+                      <th>R. BR.</th>
                       <th>Naziv predmeta</th>
                       <th>Semestar</th>
-                      <th>ESPB</th>
+                      <th>ESPB</th>           
                       <th *ngIf="korisnik && korisnik.rola.id==1"></th>
                       <th *ngIf="korisnik && korisnik.rola.id==1"></th>
                     </tr>
                   </thead>
-                  <tbody *ngFor="let predmetmodul of predmetmoduli">
-                    <tr>
-              
-                      <td>{{predmetmodul.predmetDto.naziv}}</td>
-                      <td> {{predmetmodul.semestar}}</td>
-                      <td>{{predmetmodul.predmetDto.espb}}</td>
+                  <div *ngFor="let predmetModulSortiran of predmetModulSortirano">
+                    <tbody  *ngIf="predmetModulSortiran.godina==1">
+                    <tr>              
+                      <td>{{predmetModulSortiran.pozicija}}</td>
+                      <td>{{predmetModulSortiran.predmetDto.naziv}}</td>
+                      <td> {{predmetModulSortiran.semestar}}</td>
+                      <td>{{predmetModulSortiran.predmetDto.espb}}</td>
                       <!--      Treba da se prosledi argument metodi.-->
-              <!--     comiiiii89 ilijaaaa 111-->
+              <!--     ubaciti metode za edit i delete-->
                       <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Izmeni"/></td>
                       <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Obriši"
                          /></td>
               
                     </tr>
                   </tbody>
+                </div>
                 </table>
+                <label class="label">Druga godina</label>
+                <table class="table is-bordered">
+                  <thead style="background-color: darkgray"> 
+                                             
+                    <tr>
+                      <th>R. BR.</th>
+                      <th>Naziv predmeta</th>
+                      <th>Semestar</th>
+                      <th>ESPB</th>           
+                      <th *ngIf="korisnik && korisnik.rola.id==1"></th>
+                      <th *ngIf="korisnik && korisnik.rola.id==1"></th>
+                    </tr>
+                  </thead>
+                  <div *ngFor="let predmetModulSortiran of predmetModulSortirano">
+                    <tbody *ngIf="predmetModulSortiran.godina==2">
+                    <tr>              
+                      <td>{{predmetModulSortiran.pozicija}}</td>
+                      <td>{{predmetModulSortiran.predmetDto.naziv}}</td>
+                      <td> {{predmetModulSortiran.semestar}}</td>
+                      <td>{{predmetModulSortiran.predmetDto.espb}}</td>
+                      <!--      Treba da se prosledi argument metodi.-->
+              <!--     ubaciti metode za edit i delete-->
+                      <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Izmeni"/></td>
+                      <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Obriši"
+                         /></td>
+              
+                    </tr>
+                  </tbody>
+                </div>
+                </table>
+                <label class="label">Treca godina</label>
+                <table class="table is-bordered">
+                  <thead style="background-color: darkgray">                          
+                    <tr>
+                      <th>R. BR.</th>
+                      <th>Naziv predmeta</th>
+                      <th>Semestar</th>
+                      <th>ESPB</th>           
+                      <th *ngIf="korisnik && korisnik.rola.id==1"></th>
+                      <th *ngIf="korisnik && korisnik.rola.id==1"></th>
+                    </tr>
+                  </thead>
+                  <div *ngFor="let predmetModulSortiran of predmetModulSortirano">
+                    <tbody  *ngIf="predmetModulSortiran.godina==3">
+                    <tr>              
+                      <td>{{predmetModulSortiran.pozicija}}</td>
+                      <td>{{predmetModulSortiran.predmetDto.naziv}}</td>
+                      <td> {{predmetModulSortiran.semestar}}</td>
+                      <td>{{predmetModulSortiran.predmetDto.espb}}</td>
+                      <!--      Treba da se prosledi argument metodi.-->
+              <!--     ubaciti metode za edit i delete-->
+                      <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Izmeni"/></td>
+                      <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Obriši"
+                         /></td>
+              
+                    </tr>
+                  </tbody>
+                </div>
+                </table>
+
+
               </div>
             </div>
   
