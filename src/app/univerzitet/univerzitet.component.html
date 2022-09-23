@@ -139,13 +139,40 @@
               <!--     ubaciti metode za edit i delete-->
                       <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Izmeni"/></td>
                       <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Obriši"
-                         /></td>
-              
+                         /></td>             
+                    </tr>
+                  </tbody>
+                </ng-container>
+                </tabngle>
+
+                <label class="label">Cetvrta godina</label>
+                <table class="table is-bordered">
+                  <thead style="background-color: darkgray">                          
+                    <tr>
+                      <th>R. BR.</th>
+                      <th>Naziv predmeta</th>
+                      <th>Semestar</th>
+                      <th>ESPB</th>           
+                      <th *ngIf="korisnik && korisnik.rola.id==1"></th>
+                      <th *ngIf="korisnik && korisnik.rola.id==1"></th>
+                    </tr>
+                  </thead>
+                <ng-container *ngFor="let predmetModulSortiran of predmetModulSortirano">
+                    <tbody  *ngIf="predmetModulSortiran.godina==4">
+                    <tr>              
+                      <td>{{predmetModulSortiran.pozicija}}</td>
+                      <td>{{predmetModulSortiran.predmetDto.naziv}}</td>
+                      <td> {{predmetModulSortiran.semestar}}</td>
+                      <td>{{predmetModulSortiran.predmetDto.espb}}</td>
+                      <!--      Treba da se prosledi argument metodi.-->
+              <!--     ubaciti metode za edit i delete-->
+                      <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Izmeni"/></td>
+                      <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Obriši"
+                         /></td>             
                     </tr>
                   </tbody>
                 </ng-container>
                 </table>
-
 
               </div>
             </div>
