@@ -3,31 +3,31 @@
 
 <div class="content has-text-centered">
   <p class="title">
-    <strong>SPISAK ANGAZOVANJA</strong>
+    <strong>SPISAK ANGAZOVANJA ZA PREDMET: {{getTitle()}}</strong>
   </p>
   <table class="table is-bordered">
     <thead style="background-color: darkgray">
 
 
       <tr>
-        <th>Predmet</th>
+        <!-- <th>Predmet</th> -->
         <th>Profesor</th>
         <th>Oblik nastave</th>
         <th *ngIf="korisnik && korisnik.rola.id==1"></th>
         <th *ngIf="korisnik && korisnik.rola.id==1"></th>
       </tr>
     </thead>
-    <tbody *ngFor="let angazovanje of angazovanja">
+    <tbody *ngFor="let angazovanjePoPredmetu of angazovanjaPoPredmetu">
       <tr>
 
-        <td>{{angazovanje.predmetDto.naziv}}</td>
-        <td> {{angazovanje.osobljeDto.ime}} {{angazovanje.osobljeDto.prezime}} ({{angazovanje.osobljeDto.zvanje.naziv}})</td>
-        <td>{{angazovanje.oblikNastave.naziv}}</td>
+        <!-- <td>{{angazovanjePoPredmetu.predmetDto.naziv}}</td> -->
+        <td> {{angazovanjePoPredmetu.osobljeDto.ime}} {{angazovanjePoPredmetu.osobljeDto.prezime}} ({{angazovanjePoPredmetu.osobljeDto.zvanje.naziv}})</td>
+        <td>{{angazovanjePoPredmetu.oblikNastave.naziv}}</td>
         <!--      Treba da se prosledi argument metodi.-->
 <!--     comiiiii89 ilijaaaa 111-->
-        <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Izmeni" (click)="editAngazovanje(angazovanje)" /></td>
+        <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Izmeni" (click)="editAngazovanje(angazovanjePoPredmetu)" /></td>
         <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Obriši"
-            (click)="deleteAngazovanje(angazovanje.osobljeDto.id,angazovanje.predmetDto.id)" /></td>
+            (click)="deleteAngazovanje(angazovanjePoPredmetu.osobljeDto.id,angazovanjePoPredmetu.predmetDto.id)" /></td>
 
       </tr>
     </tbody>

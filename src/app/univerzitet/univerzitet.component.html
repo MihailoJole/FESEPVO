@@ -27,7 +27,7 @@
               <div class="column">
                 <label class="label">Fakultet</label>
                 <div class="select" >
-                  <!--                  Profesore za ovaj select da puni iz baze-->
+                 
                   <select (change)="UcitajStudijskePrograme(t.value, t.options)" #t formControlName="fakultet"> 
                     <option *ngFor="let fakultet of fakulteti" value="{{fakultet.id}}">{{fakultet.naziv}}</option>
                   </select>
@@ -38,7 +38,7 @@
               <div class="column" *ngIf="fakulteti.length>0&&studijskiProgrami.length>0">
                 <label class="label">Studijski program</label>
                 <div class="select">
-                  <!--                  Predemete za ovaj select napuniti iz baze-->
+                
                   <select (change)="UcitajModule(t.value, t.options)" #t formControlName="studijskiProgram">
                     <option *ngFor="let studijskiProgram of studijskiProgrami" value="{{studijskiProgram.id}}">{{studijskiProgram.naziv}}</option>
                   </select>
@@ -48,7 +48,7 @@
               <div class="column" *ngIf="fakulteti.length>0&&studijskiProgrami.length>0&&moduli.length>0">
                 <label class="label">Modul</label>
                 <div class="select">
-                  <!--                  Predemete za ovaj select napuniti iz baze-->
+               
                   <select (click)="UcitajPredmete(t.value, t.options)" #t formControlName="fakultet" >
                     <option *ngFor="let modul of moduli" value="{{modul.id}}">{{modul.naziv}}</option>
                   </select>
@@ -64,7 +64,8 @@
                       <th>R. BR.</th>
                       <th>Naziv predmeta</th>
                       <th>Semestar</th>
-                      <th>ESPB</th>           
+                      <th>ESPB</th>  
+                      <th>Prikaz angažovanja</th>           
                       <th *ngIf="korisnik && korisnik.rola.id==1"></th>
                       <th *ngIf="korisnik && korisnik.rola.id==1"></th>
                     </tr>
@@ -76,11 +77,9 @@
                       <td>{{predmetModulSortiran.predmetDto.naziv}}</td>
                       <td> {{predmetModulSortiran.semestar}}</td>
                       <td>{{predmetModulSortiran.predmetDto.espb}}</td>
-                      <!--      Treba da se prosledi argument metodi.-->
-              <!--     ubaciti metode za edit i delete-->
-                      <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Izmeni"/></td>
-                      <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Obriši"
-                         /></td>
+                      <td><input type="button" value="Prikaži angažovanja"(click)="prikaziAngazovanje(predmetModulSortiran.predmetDto.id)" /></td> 
+              <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Izmeni"(click)="editPredmetModul(predmetModulSortiran)" /></td>
+              <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Obriši"(click)="deletePredmetModul(predmetModulSortiran)"/></td>
               
                     </tr>
                 </tbody>
@@ -94,7 +93,8 @@
                       <th>R. BR.</th>
                       <th>Naziv predmeta</th>
                       <th>Semestar</th>
-                      <th>ESPB</th>           
+                      <th>ESPB</th>  
+                      <th>Prikaz angažovanja</th>           
                       <th *ngIf="korisnik && korisnik.rola.id==1"></th>
                       <th *ngIf="korisnik && korisnik.rola.id==1"></th>
                     </tr>
@@ -106,12 +106,9 @@
                       <td>{{predmetModulSortiran.predmetDto.naziv}}</td>
                       <td> {{predmetModulSortiran.semestar}}</td>
                       <td>{{predmetModulSortiran.predmetDto.espb}}</td>
-                      <!--      Treba da se prosledi argument metodi.-->
-              <!--     ubaciti metode za edit i delete-->
-                      <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Izmeni"/></td>
-                      <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Obriši"
-                         /></td>
-              
+                     <td><input type="button" value="Prikaži angažovanja"(click)="prikaziAngazovanje(predmetModulSortiran.predmetDto.id)" /></td> 
+              <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Izmeni"(click)="editPredmetModul(predmetModulSortiran)" /></td>
+              <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Obriši"(click)="deletePredmetModul(predmetModulSortiran)"/></td>
                     </tr>
                   </tbody>
                 </ng-container>
@@ -123,7 +120,8 @@
                       <th>R. BR.</th>
                       <th>Naziv predmeta</th>
                       <th>Semestar</th>
-                      <th>ESPB</th>           
+                      <th>ESPB</th>
+                      <th>Prikaz angažovanja</th>          
                       <th *ngIf="korisnik && korisnik.rola.id==1"></th>
                       <th *ngIf="korisnik && korisnik.rola.id==1"></th>
                     </tr>
@@ -135,10 +133,9 @@
                       <td>{{predmetModulSortiran.predmetDto.naziv}}</td>
                       <td> {{predmetModulSortiran.semestar}}</td>
                       <td>{{predmetModulSortiran.predmetDto.espb}}</td>
-                      <!--      Treba da se prosledi argument metodi.-->
-              <!--     ubaciti metode za edit i delete-->
-                      <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Izmeni"/></td>
-                      <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Obriši"/></td>             
+                    <td><input type="button" value="Prikaži angažovanja"(click)="prikaziAngazovanje(predmetModulSortiran.predmetDto.id)" /></td> 
+                      <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Izmeni"(click)="editPredmetModul(predmetModulSortiran)" /></td>
+                      <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Obriši"(click)="deletePredmetModul(predmetModulSortiran)"/></td>          
                     </tr>
                   </tbody>
                 </ng-container>
@@ -151,7 +148,8 @@
                       <th>R. BR.</th>
                       <th>Naziv predmeta</th>
                       <th>Semestar</th>
-                      <th>ESPB</th>           
+                      <th>ESPB</th> 
+                      <th>Prikaz angažovanja</th>            
                       <th *ngIf="korisnik && korisnik.rola.id==1"></th>
                       <th *ngIf="korisnik && korisnik.rola.id==1"></th>
                     </tr>
@@ -163,11 +161,10 @@
                       <td>{{predmetModulSortiran.predmetDto.naziv}}</td>
                       <td> {{predmetModulSortiran.semestar}}</td>
                       <td>{{predmetModulSortiran.predmetDto.espb}}</td>
-                      <!--      Treba da se prosledi argument metodi.-->
-              <!--     ubaciti metode za edit i delete-->
-                      <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Izmeni"/></td>
-                      <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Obriši"
-                         /></td>             
+              <td><input type="button" value="Prikaži angažovanja"(click)="prikaziAngazovanje(predmetModulSortiran.predmetDto.id)" /></td> 
+              <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Izmeni"(click)="editPredmetModul(predmetModulSortiran)" /></td>
+              <td *ngIf="korisnik && korisnik.rola.id==1"><input type="button" value="Obriši"(click)="deletePredmetModul(predmetModulSortiran)"/></td>
+
                     </tr>
                   </tbody>
                 </ng-container>

@@ -14,7 +14,11 @@ export class AngazovanjaService {
   public getAll(): Observable<IAngazovanja[]> {
     return this.http.get<IAngazovanja[]>('http://localhost:8080/angazovanje');
   }
+ 
 
+public getAllByPredmetId(id:number): Observable<IAngazovanja[]> {
+    return this.http.get<IAngazovanja[]>('http://localhost:8080/angazovanje/allByPredmetId/'+id);
+  }
   public deleteAngazovanje(nastavno_osoblje_id:number,predmet_id:number){
     return this.http.post('http://localhost:8080/angazovanje/delete',{nastavno_osoblje_id,predmet_id},{responseType: 'text'});
   }

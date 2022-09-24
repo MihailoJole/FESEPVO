@@ -15,6 +15,8 @@ import { PredmetModul } from '../models/predmetModul';
 import { IKorisnik } from '../models/korisnik';
 import { PredmetModulService } from '../servisi/predmetmodul.service';
 import { KorisnikService } from '../servisi/korisnik.service';
+import { IAngazovanja } from '../models/angazovanja';
+import { AngazovanjeComponent } from '../angazovanje/angazovanje.component';
 @Component({
   selector: 'app-univerzitet',
   templateUrl: './univerzitet.component.html',
@@ -22,6 +24,7 @@ import { KorisnikService } from '../servisi/korisnik.service';
 })
 export class UniverzitetComponent implements OnInit {
   predmetmoduli: PredmetModul[] = []
+  predmetmodul: PredmetModul;
   korisnik: IKorisnik | null = null;
   fakulteti: Fakultet[]=[];
   public univerzitetForm: FormGroup
@@ -208,7 +211,7 @@ export class UniverzitetComponent implements OnInit {
             this.predmetModulSortirano = predmetModulSortirano;
             
           });
-             console.log(this.predmetmoduli)
+             //console.log(this.predmetmoduli)
            }//this.univerziteti[i].fakulteti;
          }
        }
@@ -240,6 +243,16 @@ export class UniverzitetComponent implements OnInit {
     }*/
 
   }
+
+
+  prikaziAngazovanje(id: number) {
+
+    this.router.navigate(['angazovanje'],//{state: {data: {predmetId: predmetid}}})
+     //{queryParams:{predmetId: angazovanje.predmetDto.id, nastavnoOsobljeId: angazovanje.osobljeDto.id, oblikNastave: angazovanje.oblikNastave.id}});
+     {queryParams:{predmet: id}});
+     
+    }
+
 
   onChange(event: any) {
     this.naziv = event.target.options[event.target.options.selectedIndex].text;
